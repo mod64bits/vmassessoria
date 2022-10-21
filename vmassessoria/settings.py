@@ -170,3 +170,4 @@ if 'AWS_STORAGE_BUCKET_NAME' in os.environ:
     AWS_S3_SECRET_ACCESS_KEY = os.environ['AWS_SECRET_ACCESS_KEY']
     AWS_S3_ADDRESSING_STYLE = "virtual"
     AWS_LOCATION = 'static'
+    AWS_DEFAULT_ACL = 'public-read'
