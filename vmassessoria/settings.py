@@ -154,16 +154,16 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-if 'AWS_STORAGE_BUCKET_NAME' in os.environ:
+if 'AWS' in os.environ:
 
     STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
     DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
-    AWS_STORAGE_BUCKET_NAME = os.environ['AWS_STORAGE_BUCKET_NAME']
-    AWS_S3_REGION_NAME = os.environ['AWS_S3_REGION_NAME']
+    AWS_STORAGE_BUCKET_NAME = "vmassessoria"
+    AWS_S3_REGION_NAME = "us-east-2"
 
-    AWS_S3_ACCESS_KEY_ID = os.environ['AWS_ACCESS_KEY_ID']
-    AWS_S3_SECRET_ACCESS_KEY = os.environ['AWS_SECRET_ACCESS_KEY']
+    AWS_S3_ACCESS_KEY_ID = "AKIAYANSYPEJ46UXYHMR"
+    AWS_S3_SECRET_ACCESS_KEY = "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"
     AWS_S3_ADDRESSING_STYLE = "virtual"
     AWS_LOCATION = 'static'
     AWS_DEFAULT_ACL = 'public-read'
