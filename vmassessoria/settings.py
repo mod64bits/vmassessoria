@@ -137,49 +137,37 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
-
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "vmassessoria_files/static"),
+]
+STATIC_ROOT = os.path.join(BASE_DIR, 'vmassessoria_files/staticfiles')
 STATICFILES_FINDERS = [
     "django.contrib.staticfiles.finders.FileSystemFinder",
     "django.contrib.staticfiles.finders.AppDirectoriesFinder",
-
 ]
 
 
 MEDIA_URL = '/media/'
-MEDIA_ROOT = 'media'
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-
-STATICFILES_DIRS = [
-    'statics',
-]
-STATIC_URL = '/static/'
-
-DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 
-# MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), "media")
+CKEDITOR_UPLOAD_PATH = 'uploads/'
+CKEDITOR_IMAGE_BACKEND = "pillow"
 
-
-AWS_ACCESS_KEY_ID = 'AKIAYANSYPEJ46UXYHMR'
-AWS_SECRET_ACCESS_KEY = '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'
-AWS_STORAGE_BUCKET_NAME = 'vmassessoria'
-
-AWS_S3_CUSTOM_DOMAIN = '{}.s3.amazon.com'.format(AWS_STORAGE_BUCKET_NAME)
-
-AWS_S3_FILE_OVERWRITE = True
-AWS_S3_SECURE_URLS = True
-AWS_QUERYSTRING_AUTH = False
-
-AWS_S3_OBJECT_PARAMETERS = {
-    'CacheControl': 'max-age=86400',
+CKEDITOR_CONFIGS = {
+    'default':
+        {'toolbar': 'full',
+         'width': 'auto',
+         'extraPlugins': ','.join([
+             'codesnippet',
+             'youtube'
+         ]),
+         },
 }
-AWS_LOCATION = 'static'
-#AWS_S3_CUSTOM_DOMAIN = f"{AWS_S3_CUSTOM_DOMAIN}{AWS_LOCATION}"
-STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
-STATIC_URL = 'https://%s/%s/' % (AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION)
-STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-
-STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': 'darheu7gf',
+    'API_KEY': '999164426956636',
+    'API_SECRET': 'BnVigU6KUEQ7J8Bo_NcEWQ1_00o'
+}
