@@ -1,7 +1,10 @@
 __pycache__/
+
 *.py[cod]
 *$py.class
-
+ vmassessoria/__pycache__/
+*.pyc
+*.pyo
 # Elastic Beanstalk Files
 .elasticbeanstalk/*
 !.elasticbeanstalk/*.cfg.yml
