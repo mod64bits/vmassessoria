@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "cloudinary_storage",
 
+    "corsheaders",
+
     "cloudinary",
     # libs
 
@@ -50,6 +52,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
+    "corsheaders.middleware.CorsMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
@@ -176,3 +179,10 @@ CLOUDINARY_STORAGE = {
     'API_KEY': '999164426956636',
     'API_SECRET': 'BnVigU6KUEQ7J8Bo_NcEWQ1_00o'
 }
+
+CORS_ORIGIN_ALLOW_ALL = False
+CORS_ORIGIN_WHITELIST = (
+       'http://localhost:8000',
+       'http://127.1.1.1:8000',
+       'http://vmassessoria-dev.us-west-2.elasticbeanstalk.com/',
+)
