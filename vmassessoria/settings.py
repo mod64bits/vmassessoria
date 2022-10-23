@@ -184,5 +184,5 @@ CORS_ORIGIN_ALLOW_ALL = False
 CORS_ORIGIN_WHITELIST = (
        'http://localhost:8000',
        'http://127.1.1.1:8000',
-       'http://vmassessoria-dev.us-west-2.elasticbeanstalk.com/',
+       'http://vmassessoria-dev.us-west-2.elasticbeanstalk.com',
 )
