@@ -92,14 +92,13 @@ WSGI_APPLICATION = "vmassessoria.wsgi.application"
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
 if 'PROD' in os.environ:
-    hostname = os.environ['DBHOST']
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql_psycopg2',
             'NAME': os.environ['DBNAME'],
             'USER':  os.environ['DBUSER'],
             'PASSWORD': os.environ['DBPASS'],
-            'HOST': hostname + ".postgres.database.azure.com",
+            'HOST': os.environ['DBHOST'],
         }
     }
 else:
