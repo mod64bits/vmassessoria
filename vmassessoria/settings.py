@@ -91,15 +91,14 @@ WSGI_APPLICATION = "vmassessoria.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
-if 'RDS_DB_NAME' in os.environ:
+if 'PROD' in os.environ:
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql_psycopg2',
-            'NAME': os.environ['RDS_DB_NAME'],
-            'USER': os.environ['RDS_USERNAME'],
-            'PASSWORD': os.environ['RDS_PASSWORD'],
-            'HOST': os.environ['RDS_HOSTNAME'],
-            'PORT': os.environ['RDS_PORT'],
+            'NAME': os.environ['DBNAME'],
+            'USER':  os.environ['DBUSER'],
+            'PASSWORD': os.environ['DBPASS'],
+            'HOST': os.environ['DBHOST'],
         }
     }
 else:
