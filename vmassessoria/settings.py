@@ -26,7 +26,7 @@ SECRET_KEY = "django-insecure-t_z6a+7@58d^6s*r_u78lud!wf1a4c_cffcztc-*9x64-&@e!v
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    'vmassessoria-dev.us-west-2.elasticbeanstalk.com',
+    'https://vmassessoria.azurewebsites.net/',
     'localhost',
     '127.0.0.1',
     'vmassessoria.tech',
