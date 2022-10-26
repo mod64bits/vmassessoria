@@ -24,7 +24,7 @@ SECRET_KEY = "django-insecure-t_z6a+7@58d^6s*r_u78lud!wf1a4c_cffcztc-*9x64-&@e!v
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-CSRF_TRUSTED_ORIGINS = ['https://' + os.environ['WEBSITE_HOSTNAME']] if 'WEBSITE_HOSTNAME' in os.environ else ["vmassessoria.tech"]
+CSRF_TRUSTED_ORIGINS = ["https://vmassessoria.tech", "https://www.vmassessoria.tech", "https://vmassessoria.azurewebsites.net"]
 ALLOWED_HOSTS = [
     'vmassessoria.azurewebsites.net',
     'localhost',
