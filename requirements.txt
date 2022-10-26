@@ -9,3 +9,5 @@ django-cloudinary-storage
 Pillow
 django-cors-headers
 whitenoise
+django-jazzmin
+django-resized
