@@ -47,6 +47,7 @@ class ServicosHomeItens(models.Model):
     def __str__(self):
         return self.servico
 
+
 class QuemSomos(models.Model):
     descricao = models.CharField('Quem Somos', max_length=150)
 

@@ -20,3 +20,54 @@
      {% endfor %}
 </div>
 {% endblock slider %}
+
+{% block about %}
+
+{% endblock about %}
+
+{% block servico_home %}
+    <section class="about-2 section" id="about">
+	<div class="container">
+		<div class="row justify-content-center">
+			<!-- section title -->
+			<div class="col-lg-6">
+				<div class="title text-center">
+					<h2>{{ about.titulo }}</h2>
+					<p>{{ about.descricao }}</p>
+					<div class="border"></div>
+				</div>
+			</div>
+			<!-- /section title -->
+		</div>
+
+		<div class="row">
+
+			<div class="col-md-6 mb-4 mb-md-0">
+				<img loading="lazy" src="{% static 'home/images/about/about-2.png' %}" class="img-fluid" alt="">
+			</div>
+			<div class="col-md-6">
+				<ul class="checklist">
+                    {% for item in about.servicoshomeitens_set.all %}
+					    <li>{{ item.servico }}.</li>
+                    {% endfor %}
+				</ul>
+				<a href="#" class="btn btn-main mt-20">Contato</a>
+			</div>
+		</div> <!-- End row -->
+	</div> <!-- End container -->
+</section> <!-- End section -->
+{% endblock servico_home %}
+
+{% block frases%}
+    <section class="call-to-action section">
+	<div class="container">
+		<div class="row justify-content-center">
+			<div class="col-xl-6 col-lg-8 text-center">
+				<h2>{{ frases.titulo }}</h2>
+				<p>{{ frases.descricao }}</p>
+				<a href="#" class="btn btn-main">Contato</a>
+			</div>
+		</div> <!-- End row -->
+	</div> <!-- End container -->
+</section> <!-- End section -->
+{% endblock frases %}

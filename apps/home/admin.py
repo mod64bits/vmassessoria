@@ -1,6 +1,4 @@
 from django.contrib import admin
-from django.contrib.contenttypes.admin import GenericStackedInline
-
 from .models import ServicosHome, SliderHome, FrasesRandomicasHome, Contato, QuemSomos, RedesSociais, ServicosHomeItens
 
 
@@ -38,3 +36,23 @@ class ServicosHomeAdmin(admin.ModelAdmin):
         ("Serviços Home", {"fields": ("servico", "servico_orerecido", "ativo")}),
     )
 
+
+@admin.register(FrasesRandomicasHome)
+class FrasesRandomicasHomeAdmin(admin.ModelAdmin):
+    fieldsets = (
+        ("Serviço home", {"fields": ("titulo", "descricao", "ativo")}),
+    )
+
+
+@admin.register(Contato)
+class ContatoAdmin(admin.ModelAdmin):
+    fieldsets = (
+        ("Contato", {"fields": ("endereco", "telefone", "email")}),
+    )
+
+
+@admin.register(RedesSociais)
+class RedesSociaisAdmin(admin.ModelAdmin):
+    fieldsets = (
+        ("Redes Sociais", {"fields": ("nome", "link")}),
+    )
