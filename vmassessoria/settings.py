@@ -216,8 +216,8 @@ JAZZMIN_UI_TWEAKS = {
     "body_small_text": False,
     "brand_small_text": False,
     "brand_colour": False,
-    "accent": "accent-indigo",
-    "navbar": "navbar-gray-dark navbar-dark",
+    "accent": "accent-primary",
+    "navbar": "navbar-dark",
     "no_navbar_border": False,
     "navbar_fixed": False,
     "layout_boxed": False,
@@ -230,7 +230,7 @@ JAZZMIN_UI_TWEAKS = {
     "sidebar_nav_compact_style": False,
     "sidebar_nav_legacy_style": False,
     "sidebar_nav_flat_style": False,
-    "theme": "darkly",
+    "theme": "cyborg",
     "dark_mode_theme": "cyborg",
     "button_classes": {
         "primary": "btn-primary",
@@ -241,6 +241,7 @@ JAZZMIN_UI_TWEAKS = {
         "success": "btn-outline-success"
     }
 }
+
 
 # JAZZMIN_SETTINGS["show_ui_builder"] = True
 OPTIMIZED_IMAGE_METHOD = 'pillow'
