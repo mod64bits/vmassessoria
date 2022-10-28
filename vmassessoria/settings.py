@@ -15,7 +15,6 @@ from pathlib import Path
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
@@ -24,7 +23,8 @@ SECRET_KEY = "django-insecure-t_z6a+7@58d^6s*r_u78lud!wf1a4c_cffcztc-*9x64-&@e!v
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-CSRF_TRUSTED_ORIGINS = ["https://vmassessoria.tech", "https://www.vmassessoria.tech", "https://vmassessoria.azurewebsites.net"]
+CSRF_TRUSTED_ORIGINS = ["https://vmassessoria.tech", "https://www.vmassessoria.tech",
+                        "https://vmassessoria.azurewebsites.net"]
 ALLOWED_HOSTS = [
     'vmassessoria.azurewebsites.net',
     'localhost',
@@ -32,7 +32,6 @@ ALLOWED_HOSTS = [
     'vmassessoria.tech',
     'www.vmassessoria.tech'
 ]
-
 
 # Application definition
 
@@ -48,11 +47,14 @@ INSTALLED_APPS = [
     "cloudinary",
 
     "corsheaders",
+    "ckeditor",
 
     # libs
 
     # apps
     "apps.home",
+    "apps.servicos",
+    "apps.users",
 
 ]
 
@@ -89,7 +91,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = "vmassessoria.wsgi.application"
 
-
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
@@ -99,7 +100,7 @@ if 'PROD' in os.environ:
         'default': {
             'ENGINE': 'django.db.backends.postgresql_psycopg2',
             'NAME': os.environ['DBNAME'],
-            'USER':  os.environ['DBUSER'],
+            'USER': os.environ['DBUSER'],
             'PASSWORD': os.environ['DBPASS'],
             'HOST': hostname + ".postgres.database.azure.com",
         }
@@ -115,7 +116,6 @@ else:
             'PORT': '5432',
         }
     }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
@@ -135,7 +135,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/
 
@@ -147,6 +146,8 @@ USE_I18N = True
 
 USE_TZ = True
 
+DATE_INPUT_FORMATS = '%d-%m-%Y'
+TIME_INPUT_FORMATS = ['%H:%M:%S']
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
@@ -169,11 +170,9 @@ STATICFILES_FINDERS = [
     "django.contrib.staticfiles.finders.AppDirectoriesFinder",
 ]
 
-
 MEDIA_URL = '/media/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-
 
 CKEDITOR_UPLOAD_PATH = 'uploads/'
 CKEDITOR_IMAGE_BACKEND = "pillow"
@@ -184,7 +183,6 @@ CKEDITOR_CONFIGS = {
          'width': 'auto',
          'extraPlugins': ','.join([
              'codesnippet',
-             'youtube'
          ]),
          },
 }
@@ -197,9 +195,9 @@ CLOUDINARY_STORAGE = {
 
 CORS_ORIGIN_ALLOW_ALL = False
 CORS_ORIGIN_WHITELIST = (
-       'http://localhost:8000',
-       'http://127.1.1.1:8000',
-       'http://vmassessoria-dev.us-west-2.elasticbeanstalk.com',
+    'http://localhost:8000',
+    'http://127.1.1.1:8000',
+    'http://vmassessoria-dev.us-west-2.elasticbeanstalk.com',
 )
 
 JAZZMIN_SETTINGS = {
@@ -242,6 +240,12 @@ JAZZMIN_UI_TWEAKS = {
     }
 }
 
-
 # JAZZMIN_SETTINGS["show_ui_builder"] = True
 OPTIMIZED_IMAGE_METHOD = 'pillow'
+
+# configurações de usuários
+AUTH_USER_MODEL = 'users.User'
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend',
+    'apps.users.backends.ModelBackend',
+)
