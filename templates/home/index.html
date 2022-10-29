@@ -71,3 +71,42 @@
 	</div> <!-- End container -->
 </section> <!-- End section -->
 {% endblock frases %}
+
+{% block servicos %}
+    <section class="blog" id="blog">
+	<div class="container">
+		<div class="row justify-content-center">
+			<!-- section title -->
+			<div class="col-xl-6 col-lg-8">
+				<div class="title text-center ">
+					<h2> Nossos <span class="color">Serviços</span></h2>
+					<div class="border"></div>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus facere accusamus, reprehenderit libero inventore nam.</p>
+				</div>
+			</div>
+			<!-- /section title -->
+		</div>
+
+		<div class="row">
+		    {% for servico in servicos %}
+			    <article class="col-lg-4 col-md-6">
+				<div class="post-item">
+					<div class="media-wrapper">
+						<img loading="lazy" src="{{ servico.imagem.url }}" alt="{{ servico.nome }}" class="img-fluid">
+					</div>
+
+					<div class="content">
+						<h3><a href="#">{{ servico.nome }}</a></h3>
+                        {% autoescape off %}
+						    <div>{{ servico.descricao| slice:"0:500" }}...</div>
+                        {% endautoescape %}
+						<a class="btn btn-main" href="#">Saber Mais</a>
+					</div>
+				</div>
+			</article>
+            {% endfor %}
+
+		</div> <!-- end row -->
+	</div> <!-- end container -->
+</section> <!-- end section -->
+{% endblock servicos %}

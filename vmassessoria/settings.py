@@ -84,6 +84,10 @@ TEMPLATES = [
                 "django.template.context_processors.request",
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
+                # apps
+                'apps.home.context_processors.social',
+                'apps.home.context_processors.servicos_categorias',
+                'apps.home.context_processors.contato',
             ],
         },
     },
