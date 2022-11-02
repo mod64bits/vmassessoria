@@ -23,18 +23,9 @@
 {% block post %}
     <section class="posts section">
 	<div class="container">
-
 		<div class="row">
-            <div id="form-busca" class="form-busca col-lg-12 col-md-6">
-                <form method="get">
-                    {{ busca }}
-                    <button id="button-buscar" type="submit">&#128269;</button>
-                </form>
-            </div>
-         <div class="form-busca col-lg-12 col-md-6">
-
-            </div>
-	           {% for servico in object_list %}
+        {% if filter.qs %}
+	           {% for servico in filter.qs %}
 			    <article class="col-lg-4 col-md-6">
 				<div class="post-item">
 					<div class="media-wrapper">
@@ -51,6 +42,25 @@
 				</div>
 			</article>
             {% endfor %}
+        {% else %}
+         {% for servico in filter.qs %}
+			    <article class="col-lg-4 col-md-6">
+				<div class="post-item">
+					<div class="media-wrapper">
+						<img loading="lazy" src="{{ servico.imagem.url }}" alt="{{ servico.nome }}" class="img-fluid">
+					</div>
+
+					<div class="content">
+						<h3><a href="#">{{ servico.nome }}</a></h3>
+                        {% autoescape off %}
+						    <div>{{ servico.descricao| slice:"0:300" }}...</div>
+                        {% endautoescape %}
+						<a class="btn btn-main" href="{% url 'home:servicos_detalhe' servico.slug %}">Saber Mais</a>
+					</div>
+				</div>
+			</article>
+            {% endfor %}
+        {% endif %}
 		</div>
 	</div>
 </section>

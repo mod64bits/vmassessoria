@@ -15,7 +15,7 @@
             </li>
          <li><a href="{% url 'home:servicos_home' %}">TODOS</a></li>
               {% for servico_h in categorias %}
-                <li><a href="#">{{ servico_h.nome|upper }}</a></li>
+                <li><a href="{% url 'home:servicos_home' %}?nome={{ servico_h.nome }}">{{ servico_h.nome|upper }}</a></li>
               {% endfor %}
           </ul>
         </div>
@@ -26,10 +26,10 @@
             <li>
               <h3>Quick Links</h3>
             </li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="service.html">Services</a></li>
-            <li><a href="blog.html">Blogs</a></li>
-            <li><a href="404.html">404</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Blogs</a></li>
+            <li><a href="#">404</a></li>
           </ul>
         </div>
         <!-- End of .col-sm-3 -->

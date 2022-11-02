@@ -96,11 +96,11 @@
 					</div>
 
 					<div class="content">
-						<h3><a href="#">{{ servico.nome }}</a></h3>
+						<h3><a href="{% url 'home:servicos_detalhe' servico.slug%}">{{ servico.nome }}</a></h3>
                         {% autoescape off %}
 						    <div>{{ servico.descricao| slice:"0:500" }}...</div>
                         {% endautoescape %}
-						<a class="btn btn-main" href="#">Saber Mais</a>
+						<a class="btn btn-main" href="{% url 'home:servicos_detalhe' servico.slug%}">Saber Mais</a>
 					</div>
 				</div>
 			</article>

@@ -27,7 +27,7 @@
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown02">
              <li><a class="dropdown-item" href="{% url 'home:servicos_home' %}">TODOS</a></li>
                 {% for menu in categorias %}
-                    <li><a class="dropdown-item" href="#">{{ menu.nome|upper }}</a></li>
+                    <li><a class="dropdown-item" href="{% url 'home:servicos_home' %}?nome={{ menu.nome }}">{{ menu.nome|upper }}</a></li>
                 {% endfor %}
 
 
