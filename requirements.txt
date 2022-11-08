@@ -13,3 +13,4 @@ django-jazzmin
 django-resized
 django-ckeditor
 django-filter
+django-widget-tweaks

@@ -48,6 +48,7 @@ INSTALLED_APPS = [
 
     "corsheaders",
     "ckeditor",
+    "widget_tweaks",
 
     # libs
 
@@ -55,6 +56,7 @@ INSTALLED_APPS = [
     "apps.home",
     "apps.servicos",
     "apps.users",
+    "apps.contato",
 
 ]
 
