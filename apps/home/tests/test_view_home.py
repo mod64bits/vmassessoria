@@ -3,7 +3,7 @@ from django.test import TestCase
 
 class HomeTest(TestCase):
     def setUp(self):
-        self.response = self.client.get('home:home')
+        self.response = self.client.get('/')
 
     def test_get(self):
         """GET / must return status code 200"""

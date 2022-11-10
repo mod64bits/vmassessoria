@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 import os
+from decouple import config
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -46,17 +47,19 @@ INSTALLED_APPS = [
     "cloudinary_storage",
     "cloudinary",
 
+    # libs
     "corsheaders",
     "ckeditor",
     "widget_tweaks",
+    "test_without_migrations",
 
-    # libs
 
     # apps
     "apps.home",
     "apps.servicos",
     "apps.users",
     "apps.contato",
+    "apps.core",
 
 ]
 
@@ -255,3 +258,10 @@ AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
     'apps.users.backends.ModelBackend',
 )
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.mailtrap.io'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'api'
+EMAIL_HOST_PASSWORD = '81f2a183d6dd31eaf167430fc1585f45'
+EMAIL_USE_SSL = True

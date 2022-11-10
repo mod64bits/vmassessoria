@@ -38,3 +38,19 @@ class ContatoTest(TestCase):
 
         form = self.resp.context['form']
         self.assertSequenceEqual(['contato', 'email', 'telefone', 'assunto', 'mensagem'], list(form.fields))
+
+
+class PostContatoValid(TestCase):
+    def setUp(self):
+        data = dict(
+            contato='Marcio Oliveira',
+            email='mod64bits@gmail.com',
+            telefone='19999664769',
+            assunto='Contato',
+            mensagem='Teste de salvamento'
+        )
+        self.resp = self.client.post('/contato/', data)
+
+    def test_post(self):
+        """Valid POST should redirect to /contato/"""
+        self.assertEqual(302, self.resp.status_code)

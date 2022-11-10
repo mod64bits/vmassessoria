@@ -2,7 +2,6 @@ from django.views.generic.list import ListView
 from django.views.generic import TemplateView
 from django.views.generic.detail import DetailView
 from django.db.models import Q
-from django.core.exceptions import ObjectDoesNotExist
 from .models import SliderHome, ServicosHome, FrasesRandomicasHome
 from apps.servicos.models import Servicos
 from .forms import ServicosSearchForm
@@ -21,10 +20,7 @@ class HomeView(TemplateView):
 
     @property
     def oque_oferecemos(self):
-        try:
-            return ServicosHome.objects.get(titulo="O QUE OFERECEMOS", ativo=True)
-        except ObjectDoesNotExist:
-            return None
+        return ServicosHome.objects.get(titulo="O QUE OFERECEMOS", ativo=True) or None
 
 
 class TodosOsServicos(ListView):
