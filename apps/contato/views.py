@@ -13,5 +13,5 @@ class ContatoView(CreateView):
         """If the form is valid, send an email and then save the form."""
         print()
         MailSend = SendVmMail(subject="test", nome="test", assunto="tesdt" ,telefone="199996647569", mensagem="mensagem")
-        MailSend.contato(email="contato@mod.com.br")
+        MailSend.contato(email="contato@vmassessoria.tech")
         return super(ContatoForm, self).form_valid(form)
