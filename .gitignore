@@ -1,5 +1,5 @@
 __pycache__/
-
+.idea/
 *.py[cod]
 *$py.class
  vmassessoria/__pycache__/
@@ -11,7 +11,7 @@ __pycache__/
 !.elasticbeanstalk/*.global.yml
 # C extensions
 *.so
-.idea/
+*.iml
 # Distribution / packaging
 .Python
 build/

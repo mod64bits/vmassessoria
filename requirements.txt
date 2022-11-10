@@ -13,3 +13,6 @@ django-jazzmin
 django-resized
 django-ckeditor
 django-filter
+django-widget-tweaks
+django-test-without-migrations
+python-decouple

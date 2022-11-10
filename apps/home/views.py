@@ -18,6 +18,10 @@ class HomeView(TemplateView):
         context['servicos'] = Servicos.objects.order_by('?').all()[:3]
         return context
 
+    @property
+    def oque_oferecemos(self):
+        return ServicosHome.objects.get(titulo="O QUE OFERECEMOS", ativo=True) or None
+
 
 class TodosOsServicos(ListView):
     model = Servicos
