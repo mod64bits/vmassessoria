@@ -104,7 +104,7 @@ WSGI_APPLICATION = "vmassessoria.wsgi.application"
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
 if 'PROD' in os.environ:
-    email_host = os.environ['EMAIL_HOST_PASSWORD']
+    email_host = os.environ['EMAIL_HOST']
     email_port = int(os.environ['EMAIL_PORT'])
     email_host_user = os.environ['EMAIL_HOST_USER']
     email_host_password = os.environ['EMAIL_HOST_PASSWORD']
