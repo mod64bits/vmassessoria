@@ -104,6 +104,11 @@ WSGI_APPLICATION = "vmassessoria.wsgi.application"
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
 if 'PROD' in os.environ:
+    email_host = os.environ['EMAIL_HOST_PASSWORD']
+    email_port = int(os.environ['EMAIL_PORT'])
+    email_host_user = os.environ['EMAIL_HOST_USER']
+    email_host_password = os.environ['EMAIL_HOST_PASSWORD']
+
     hostname = os.environ['DBHOST']
     DATABASES = {
         'default': {
@@ -115,6 +120,11 @@ if 'PROD' in os.environ:
         }
     }
 else:
+    email_host = config('EMAIL_HOST')
+    email_port = 587
+    email_host_user = config('EMAIL_HOST_USER')
+    email_host_password = config('EMAIL_HOST_PASSWORD')
+
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql_psycopg2',
@@ -260,9 +270,9 @@ AUTHENTICATION_BACKENDS = (
 )
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = config('EMAIL_HOST')
-EMAIL_PORT = 587
-EMAIL_HOST_USER = config('EMAIL_HOST_USER')
-EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
+EMAIL_HOST = email_host
+EMAIL_PORT = email_port
+EMAIL_HOST_USER = email_host_user
+EMAIL_HOST_PASSWORD = email_host_password
 EMAIL_USE_TLS = True
 EMAIL_USE_SSL = False
