@@ -1,7 +1,4 @@
-import os
 from django.utils.html import strip_tags
-from email.mime.image import MIMEImage
-from django.conf import settings
 from django.core.mail import EmailMultiAlternatives
 from django.template.loader import render_to_string
 
@@ -46,7 +43,7 @@ class SendVmMail:
         msg = EmailMultiAlternatives(
             self.subject,
             text_content,
-            "site@vmassesoria.tech",
+            "contato@vmassesoria.tech",
             ["contato@vmassessoria.tech"]
         )
         msg.attach_alternative(html_content, "text/html")
@@ -65,7 +62,7 @@ class SendVmMail:
         msg = EmailMultiAlternatives(
             self.subject,
             text_content,
-            email,
+            'contato@vmassesoria.tech',
             ["contato@vmassesoria.tech"]
         )
         msg.attach_alternative(html_content, "text/html")
