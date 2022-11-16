@@ -30,3 +30,11 @@ class ContatoView(SuccessMessageMixin, CreateView):
             self.request, messages.SUCCESS, self.success_message
         )
         return HttpResponseRedirect('/contato/')
+    def form_invalid(self, form):
+        for key, error in list(form.errors.items()):
+            if key == 'captcha' and error[0] == 'This field is required.':
+                messages.error(self.request, 'Você deve passar no teste reCAPTCH')
+                continue
+            messages.error(self.request, error)
+
+        return HttpResponseRedirect('/contato/')
