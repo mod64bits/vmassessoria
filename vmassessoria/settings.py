@@ -60,6 +60,7 @@ INSTALLED_APPS = [
     "apps.users",
     "apps.contato",
     "apps.core",
+    "captcha",
 
 ]
 
@@ -104,6 +105,8 @@ WSGI_APPLICATION = "vmassessoria.wsgi.application"
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
 if 'PROD' in os.environ:
+    recaptcha_public_key = os.environ['RECAPTCHA_PUBLIC_KEY']
+    recaptcha_private_key = os.environ['RECAPTCHA_PRIVATE_KEY']
     email_host = os.environ['EMAIL_HOST']
     email_port = int(os.environ['EMAIL_PORT'])
     email_host_user = os.environ['EMAIL_HOST_USER']
@@ -120,15 +123,13 @@ if 'PROD' in os.environ:
         }
     }
 else:
-    # email_host = config('EMAIL_HOST')
-    # email_port = 587
-    # email_host_user = config('EMAIL_HOST_USER')
-    # email_host_password = config('EMAIL_HOST_PASSWORD')
+    recaptcha_public_key = config('RECAPTCHA_PUBLIC_KEY')
+    recaptcha_private_key = config('RECAPTCHA_PRIVATE_KEY')
 
-    email_host = 'smtp.umbler.com'
+    email_host = config('EMAIL_HOST')
     email_port = 587
-    email_host_user = 'contato@vmassessoria.tech'
-    email_host_password = 'Mikita*2719'
+    email_host_user = config('EMAIL_HOST_USER')
+    email_host_password = config('EMAIL_HOST_PASSWORD')
 
     DATABASES = {
         'default': {
@@ -281,3 +282,9 @@ EMAIL_HOST_USER = email_host_user
 EMAIL_HOST_PASSWORD = email_host_password
 EMAIL_USE_TLS = False
 EMAIL_USE_SSL = False
+
+RECAPTCHA_PUBLIC_KEY = recaptcha_public_key
+RECAPTCHA_PRIVATE_KEY = recaptcha_private_key
+SILENCED_SYSTEM_CHECKS = ['captcha.recaptcha_test_key_error']
+
+RECAPTCHA_PROXY = {'http': 'http://127.0.0.1:8000', 'https': 'https://127.0.0.1:8000'}

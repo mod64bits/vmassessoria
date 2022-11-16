@@ -16,3 +16,4 @@ django-filter
 django-widget-tweaks
 django-test-without-migrations
 python-decouple
+django-recaptcha

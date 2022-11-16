@@ -37,7 +37,7 @@ class ContatoTest(TestCase):
         """Form must have 5 fields"""
 
         form = self.resp.context['form']
-        self.assertSequenceEqual(['contato', 'email', 'telefone', 'assunto', 'mensagem'], list(form.fields))
+        self.assertSequenceEqual(['contato', 'email', 'telefone', 'assunto', 'mensagem', 'captcha'], list(form.fields))
 
 
 class PostContatoValid(TestCase):
