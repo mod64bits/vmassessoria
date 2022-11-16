@@ -43,7 +43,7 @@ class SendVmMail:
         msg = EmailMultiAlternatives(
             self.subject,
             text_content,
-            "contato@vmassesoria.tech",
+            "contato@vmassessoria.tech",
             ["contato@vmassessoria.tech"]
         )
         msg.attach_alternative(html_content, "text/html")
@@ -62,8 +62,8 @@ class SendVmMail:
         msg = EmailMultiAlternatives(
             self.subject,
             text_content,
-            'contato@vmassesoria.tech',
-            ["contato@vmassesoria.tech"]
+            'contato@vmassessoria.tech',
+            ["contato@vmassessoria.tech"]
         )
         msg.attach_alternative(html_content, "text/html")
         msg.send()

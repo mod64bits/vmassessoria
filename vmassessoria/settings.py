@@ -120,10 +120,15 @@ if 'PROD' in os.environ:
         }
     }
 else:
-    email_host = config('EMAIL_HOST')
+    # email_host = config('EMAIL_HOST')
+    # email_port = 587
+    # email_host_user = config('EMAIL_HOST_USER')
+    # email_host_password = config('EMAIL_HOST_PASSWORD')
+
+    email_host = 'smtp.umbler.com'
     email_port = 587
-    email_host_user = config('EMAIL_HOST_USER')
-    email_host_password = config('EMAIL_HOST_PASSWORD')
+    email_host_user = 'contato@vmassessoria.tech'
+    email_host_password = 'Mikita*2719'
 
     DATABASES = {
         'default': {
