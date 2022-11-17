@@ -287,4 +287,5 @@ RECAPTCHA_PUBLIC_KEY = recaptcha_public_key
 RECAPTCHA_PRIVATE_KEY = recaptcha_private_key
 SILENCED_SYSTEM_CHECKS = ['captcha.recaptcha_test_key_error']
 
-RECAPTCHA_PROXY = {'http': 'http://127.0.0.1:8000', 'https': 'https://127.0.0.1:8000'}
+
+#RECAPTCHA_PROXY = {'http': 'http://127.0.0.1:8000', 'https': 'https://127.0.0.1:8000'}
