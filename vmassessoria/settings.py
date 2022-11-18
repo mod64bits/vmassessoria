@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     "ckeditor",
     "widget_tweaks",
     "test_without_migrations",
+    "captcha",
 
 
     # apps
@@ -60,7 +61,7 @@ INSTALLED_APPS = [
     "apps.users",
     "apps.contato",
     "apps.core",
-    "captcha",
+    "apps.clientes",
 
 ]
 
